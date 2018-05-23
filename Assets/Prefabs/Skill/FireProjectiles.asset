@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a580d277f10860349bdad0e741ffa284, type: 3}
+  m_Name: FireProjectiles
+  m_EditorClassIdentifier: 
+  skillName: 
+  manacost: 0
+  castTime: 0
+  cdTime: 2
+  durationTime: 0
+  castRange: 0
+  skillPower: 0
+  timer: 0
+  usePriority: 0
+  isReady: 0
+  isAlwaysUse: 0
+  skillImage: {fileID: 0}
+  unit: {fileID: 0}
+  button: Fire1
+  xPos: {fileID: 11400000, guid: f7da58f20f36e144f9f20265fc9e0934, type: 2}
+  yPos: {fileID: 11400000, guid: 083348e83e385e6409f57980e1fa086d, type: 2}
+  projectile: {fileID: 1845034829190212, guid: 22e9ec49992537448a6c114d033fe846, type: 2}
+  speed: 10
