@@ -16,12 +16,12 @@ public class SkillEvent : Skill {
     { 
     }
 
-    public virtual void OnDamageDealt(float damageF, float damageM, Transform source)
+    public virtual void OnDamageDealt()
     {
         //Сотвори чудо. Пример
     }
 
-    public virtual void OnDamageHasTaken(float damageF, float damageM)
+    public virtual void OnDamageHasTaken()
     {
         //Сотвори чудо. Пример
     }

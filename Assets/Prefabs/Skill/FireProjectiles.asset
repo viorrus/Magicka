@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a580d277f10860349bdad0e741ffa284, type: 3}
   m_Name: FireProjectiles
   m_EditorClassIdentifier: 
-  skillName: 
+  skillName: Attack
   manacost: 0
   castTime: 0
   cdTime: 2

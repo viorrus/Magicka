@@ -7,12 +7,16 @@ public class BlockObject : UnitObject {
    
     public SpriteRenderer spriteR;
 
-    public override void Awake()
+    public override void Start()
     {
         unitBase = unitBase.InstantiateMe(transform);
         unitBase.stats = new List<Stat>();
         gameObject.AddComponent<SkillMasterBlock>();
-        spriteR.sprite = unitBase.sprite;
+        if (spriteR)
+        {
+            spriteR.sprite = unitBase.sprite;
+        }
+       
     }
 
     public override void SetState(int i)

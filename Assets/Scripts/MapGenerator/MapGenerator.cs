@@ -53,9 +53,14 @@ public class MapGenerator : MonoBehaviour {
         for(int i=0; i < map.Count; i++)
         {
             var tempBlock = GetBlockByID(map[i]);
+            
             k = i/xCount;
             x = k == y ? x : 0;
-            mapBlocks.Add(Instantiate(tempBlock.blockObject,(startPoint.position + new Vector3(x * xSize, -k * ySize, 0)), startPoint.rotation, startPoint));
+            if (tempBlock != null)
+            {
+                mapBlocks.Add(Instantiate(tempBlock.blockObject, (startPoint.position + new Vector3(x * xSize, -k * ySize, 0)), startPoint.rotation, startPoint));
+                mapBlocks[mapBlocks.Count - 1].unitBase = tempBlock;
+            }
             x++;
             y = k;
         }

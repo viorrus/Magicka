@@ -8,7 +8,7 @@ public class SkillMasterUnit : SkillMaster
     public override void Start()
     {
         unit = GetComponent<UnitObject>();
-        unit.death += DestoyAllSkills;
+        unit.deathAct += DestoyAllSkills;
         if(skillList == null)
         {
             skillList = new List<Skill>();

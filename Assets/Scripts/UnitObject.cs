@@ -4,14 +4,17 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class UnitObject : MonoBehaviour {
-    public System.Action death;
+    public System.Action deathAct;
+    public System.Action damageAct;
+
+
     public Unit unitBase;
     public bool isFree;
     public Animator animator;
     public int animatorState;
     public NavMeshAgent agent;
 
-    public  virtual  void Awake()
+    public  virtual  void Start()
     {
         unitBase = unitBase.InstantiateMe(transform);
         unitBase.stats = new List<Stat>();
@@ -27,5 +30,14 @@ public class UnitObject : MonoBehaviour {
     public virtual void AddSkill(Skill skill)
     {
 
+    }
+
+    public void GetDamage(int damage)
+    {
+        if (damageAct!=null)
+        {
+            damageAct();
+        }
+       
     }
 }
