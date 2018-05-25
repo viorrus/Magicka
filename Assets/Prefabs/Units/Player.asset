@@ -17,7 +17,7 @@ MonoBehaviour:
   stats: []
   skills:
   - {fileID: 11400000, guid: 0368b01f30f151a44acc9319e3ae6ee3, type: 2}
-  - {fileID: 11400000, guid: 5dd9eb4260ce23746a0045fef8a86a2c, type: 2}
   - {fileID: 11400000, guid: b177c2baa15c5e644b46fff07ccbca78, type: 2}
+  - {fileID: 11400000, guid: e74608fa90de2854c8cc245c3cab7420, type: 2}
   sprite: {fileID: 0}
   cost: 0

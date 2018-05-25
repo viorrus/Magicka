@@ -7,7 +7,13 @@ using System.Linq;
 public class AnimateObject : SkillEvent {
     public Animator activeAnimator;
     public Move3d moveSkill;
+    public ProjectilesAttack attackSkill;
     public float jumpProcent;
+    public Transform targetAim;
+    public Transform rootBone;
+    public Vector3 offset;
+    private AnimatorIk ik;
+
 
 
 
@@ -15,16 +21,34 @@ public class AnimateObject : SkillEvent {
     {
         activeAnimator = unit.GetComponentInChildren<Animator>();
         unit.damageAct += OnDamageHasTaken;
+        targetAim = unit.GetComponentInChildren<AimTarget>().transform;
+        rootBone = unit.GetComponentInChildren<RootBone>().transform;
+        if (activeAnimator)
+        {
+            ik = activeAnimator.gameObject.AddComponent<AnimatorIk>();
+            ik.Init(targetAim, activeAnimator, rootBone);
+        }
         DOVirtual.DelayedCall(0.1f, () =>
         {
             moveSkill = unit.unitBase.GetSkillByName("Move") as Move3d;
+            attackSkill = unit.unitBase.GetSkillByName("Attack") as ProjectilesAttack;
             moveSkill.move += Walk;
             moveSkill.startCrouch += Sitting;
             moveSkill.endCrouch += Sitting;
             moveSkill.startJump += Jump;
             moveSkill.startRotate += Rotate;
+            attackSkill.madeAttack += Attack;
         });
-      
+
+        if (ik)
+        {
+            DOVirtual.DelayedCall(Time.deltaTime, () =>
+            {
+                SetAimFlag((activeAnimator.GetBool("Aiming")));
+            }).SetLoops(-1).SetTarget(unit.gameObject).SetUpdate(UpdateType.Late)
+                   ;
+        }
+       
     }
 
    
@@ -47,13 +71,9 @@ public class AnimateObject : SkillEvent {
         moveSkill.endCrouch -= Sitting;
         moveSkill.startJump -= Jump;
         moveSkill.startRotate -= Rotate;
+        attackSkill.madeAttack += Attack;
     }
 
-    public void Stay()
-    {
-        activeAnimator.SetBool("Aiming", false);
-        activeAnimator.SetFloat("Speed", 0f);
-    }
 
     public void Walk(float speed)
     {
@@ -70,7 +90,13 @@ public class AnimateObject : SkillEvent {
     public void Attack()
     {
         Aiming();
-        activeAnimator.SetTrigger("Attack");
+        DOVirtual.DelayedCall(activeAnimator.GetCurrentAnimatorStateInfo(0).length, () =>
+        {
+            activeAnimator.SetTrigger("Attack");
+            attackSkill.MakeFire(activeAnimator.GetInteger("Direction"));
+        }
+        );
+      
     }
 
     public void Death()
@@ -100,20 +126,16 @@ public class AnimateObject : SkillEvent {
 
     public void Aiming()
     {
-        activeAnimator.SetBool("Squat", false);
-        activeAnimator.SetFloat("Speed", 0f);
         activeAnimator.SetBool("Aiming", true);
     }
 
     public void Rotate(int direction)
     {
         activeAnimator.SetInteger("Direction", direction);
-      //  activeAnimator.SetTrigger("Rotate");
+      //  activeAnimator.SetTrigger("Rotate"); // Анимация оказалось довольно кривая, что проще стало от нее отказаться. В целом оставил, вдруг найду хорошую
          Sequence sq = DOTween.Sequence();
           sq.SetDelay(0.1f)
               .Append(activeAnimator.transform.DOLocalRotate(new Vector3(0, 90 * direction, 0), 0.8469388f));
-
-
     }
 
     public void Sitting()
@@ -122,5 +144,14 @@ public class AnimateObject : SkillEvent {
         activeAnimator.SetBool("Aiming", false);
     }
 
+    private void Aim()
+    {
+        rootBone.LookAt(targetAim);
+        rootBone.rotation *= Quaternion.Euler(offset);
+    }
 
+    private void SetAimFlag(bool flag)
+    {
+        ik.SetFlag(flag);
+    }
 }
