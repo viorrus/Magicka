@@ -3,30 +3,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Networking;
 
 public class AnimateObject : SkillEvent {
     public Animator activeAnimator;
     public Move3d moveSkill;
     public ProjectilesAttack attackSkill;
     public float jumpProcent;
-    public Transform targetAim;
-    public Transform rootBone;
+    private Transform targetAim;
+    private Transform rootBone;
+    private Transform rootMeshObject;
     public Vector3 offset;
     private AnimatorIk ik;
+    private System.Action shoot;
 
 
 
 
     public override void Init()
     {
+      
         activeAnimator = unit.GetComponentInChildren<Animator>();
+       
         unit.damageAct += OnDamageHasTaken;
         targetAim = unit.GetComponentInChildren<AimTarget>().transform;
+        rootMeshObject = unit.GetComponentInChildren<RootMesh>().transform;
         rootBone = unit.GetComponentInChildren<RootBone>().transform;
+        shoot += MakeAttack;
         if (activeAnimator)
         {
             ik = activeAnimator.gameObject.AddComponent<AnimatorIk>();
-            ik.Init(targetAim, activeAnimator, rootBone);
+            ik.Init(targetAim, activeAnimator, rootBone, shoot);
         }
         DOVirtual.DelayedCall(0.1f, () =>
         {
@@ -36,8 +43,9 @@ public class AnimateObject : SkillEvent {
             moveSkill.startCrouch += Sitting;
             moveSkill.endCrouch += Sitting;
             moveSkill.startJump += Jump;
+            moveSkill.endJump += Land;
             moveSkill.startRotate += Rotate;
-            attackSkill.madeAttack += Attack;
+            unit.attackAct += Attack;
         });
 
         if (ik)
@@ -58,20 +66,25 @@ public class AnimateObject : SkillEvent {
 
     }
 
-    public override void OnDamageHasTaken()
+    public override void OnDamageHasTaken(float damage)
     {
-        base.OnDamageHasTaken();
+        base.OnDamageHasTaken(damage);
     }
 
     void OnDestroy()
     {
-        unit.damageAct -= OnDamageHasTaken;
+        /*if (unit != null)
+        {
+            unit.damageAct -= OnDamageHasTaken;
+            unit.attackAct -= Attack;
+        }
         moveSkill.move -= Walk;
         moveSkill.startCrouch -= Sitting;
         moveSkill.endCrouch -= Sitting;
         moveSkill.startJump -= Jump;
         moveSkill.startRotate -= Rotate;
-        attackSkill.madeAttack += Attack;
+       
+        shoot -= MakeAttack;*/
     }
 
 
@@ -90,13 +103,13 @@ public class AnimateObject : SkillEvent {
     public void Attack()
     {
         Aiming();
-        DOVirtual.DelayedCall(activeAnimator.GetCurrentAnimatorStateInfo(0).length, () =>
-        {
             activeAnimator.SetTrigger("Attack");
-            attackSkill.MakeFire(activeAnimator.GetInteger("Direction"));
-        }
-        );
-      
+    }
+
+    public void MakeAttack()
+    {
+        attackSkill.CmdFire((int)(rootMeshObject.rotation.eulerAngles.y > 100 ? -1: 1));
+       // attackSkill.Fire((int)(rootMeshObject.rotation.eulerAngles.y > 100 ? -1 : 1));
     }
 
     public void Death()
@@ -121,7 +134,13 @@ public class AnimateObject : SkillEvent {
         activeAnimator.SetFloat("Speed", 0f);
         activeAnimator.SetBool("Aiming", false);
         activeAnimator.SetTrigger("Jump");
+        activeAnimator.SetBool("IsGround", false);
         DOVirtual.DelayedCall(jumpProcent, moveSkill.AnimDelayJump);
+    }
+
+    public void Land()
+    {
+        activeAnimator.SetBool("IsGround", true);
     }
 
     public void Aiming()
@@ -135,7 +154,7 @@ public class AnimateObject : SkillEvent {
       //  activeAnimator.SetTrigger("Rotate"); // Анимация оказалось довольно кривая, что проще стало от нее отказаться. В целом оставил, вдруг найду хорошую
          Sequence sq = DOTween.Sequence();
           sq.SetDelay(0.1f)
-              .Append(activeAnimator.transform.DOLocalRotate(new Vector3(0, 90 * direction, 0), 0.8469388f));
+              .Append(rootMeshObject.DOLocalRotate(new Vector3(0, 90 * direction, 0), 0.8469388f));
     }
 
     public void Sitting()

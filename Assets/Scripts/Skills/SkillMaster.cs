@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class SkillMaster : MonoBehaviour
+public class SkillMaster : NetworkBehaviour
 {
     public UnitObject unit;
     public List<Skill> skillList;
@@ -9,11 +10,16 @@ public class SkillMaster : MonoBehaviour
 
     public virtual void Start()
     {
+
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         CullDownUpdate();
         SelectSkill();
     }

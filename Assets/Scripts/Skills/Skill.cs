@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -7,7 +8,7 @@ using UnityEngine;
 
 
 
-public abstract class Skill : ScriptableObject {
+public abstract class Skill : NetworkBehaviour {
     public string skillName;
     public int manacost;
     public float castTime;
@@ -28,6 +29,7 @@ public abstract class Skill : ScriptableObject {
     abstract public  void CheckSkill();
     abstract public void UseSkill();
     abstract public void Init();
+    abstract public void Setup(Skill skill);
 
 #if UNITY_EDITOR
     [MenuItem("Tools/CreateSO")]

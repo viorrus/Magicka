@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-public class Stat : ScriptableObject {
+public class Stat : NetworkBehaviour {
 
     public int id;
     public string stringId;
     private string statName;
+
     [SerializeField]
+    [SyncVar(hook ="NetChanger")]
     private float _value;
     [SerializeField]
     private float Value
@@ -40,12 +43,13 @@ public class Stat : ScriptableObject {
             }
             if(_value != value)
             {
+                _value = value;
                 if (valueChanged!=null)
                 {
-                    valueChanged();
+                    valueChanged(GetProcent());
                 } 
             }
-            _value = value;
+          
 
         }
     }
@@ -55,11 +59,19 @@ public class Stat : ScriptableObject {
     private float maxValue;
     public Action valueisMin;
     public Action valueisMax;
-    public Action valueChanged;
+    public Action<float> valueChanged;
     public Sprite spriteBar;
     public Sprite spriteIcon;
 
 
+    void NetChanger(float value)
+    {
+        this._value = value;
+        if (valueChanged != null)
+        {
+            valueChanged(GetProcent());
+        }
+    }
 
     public string GetName()
     {
@@ -94,6 +106,23 @@ public class Stat : ScriptableObject {
     {
         return Value == minValue;
     }
+
+    public void Setup(Stat stat)
+    {
+       
+        minValue = stat.minValue;
+        maxValue = stat.maxValue;
+        if (_value == 0)
+        {
+            _value = maxValue;
+        }  
+            NetChanger(_value);
+        spriteBar = stat.spriteBar;
+        spriteIcon = stat.spriteIcon;
+        stringId = stat.stringId;
+    }
+
+
 
 #if UNITY_EDITOR
     [MenuItem("Tools/CreateStat")]

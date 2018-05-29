@@ -16,8 +16,8 @@ MonoBehaviour:
   unitClass: 
   stats: []
   skills:
-  - {fileID: 11400000, guid: 0368b01f30f151a44acc9319e3ae6ee3, type: 2}
-  - {fileID: 11400000, guid: b177c2baa15c5e644b46fff07ccbca78, type: 2}
-  - {fileID: 11400000, guid: e74608fa90de2854c8cc245c3cab7420, type: 2}
+  - {fileID: 114125152882045798, guid: 4b6d78300dbf75b47b345bf0437daf7c, type: 2}
+  - {fileID: 114234713562686038, guid: 248a884b5b3bdf246aede9a10ab73898, type: 2}
+  - {fileID: 114180280994738332, guid: cf7a04ab55b3a5447abf202548ee24ee, type: 2}
+  - {fileID: 114590636400036068, guid: b32bfbae4e4b68e4e9e1ccc58e722f88, type: 2}
   sprite: {fileID: 0}
-  cost: 0

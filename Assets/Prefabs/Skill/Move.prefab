@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1090592493538732}
+  m_IsPrefabParent: 1
+--- !u!1 &1090592493538732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4152797854652412}
+  - component: {fileID: 114257450161563266}
+  - component: {fileID: 114180280994738332}
+  m_Layer: 0
+  m_Name: Move
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4152797854652412
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1090592493538732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114180280994738332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1090592493538732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81dcee30d5033564ea54686fefc0989e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: Move
+  manacost: 0
+  castTime: 0
+  cdTime: 0
+  durationTime: 0
+  castRange: 0
+  skillPower: 4
+  timer: 0
+  usePriority: 0
+  isReady: 0
+  isAlwaysUse: 0
+  skillImage: {fileID: 0}
+  unit: {fileID: 0}
+  xPos: {fileID: 114193335006341688, guid: 5016907a1d306ae438c5312c8f31a2f8, type: 2}
+  isCanControlInAir: 1
+  crouchPoint: {fileID: 0}
+  crouchRadius: 0.2
+  groundPoint: {fileID: 0}
+  groundRadius: 0.2
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 55
+--- !u!114 &114257450161563266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1090592493538732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 207
+    i1: 122
+    i2: 4
+    i3: 171
+    i4: 85
+    i5: 179
+    i6: 165
+    i7: 68
+    i8: 122
+    i9: 191
+    i10: 32
+    i11: 37
+    i12: 72
+    i13: 238
+    i14: 36
+    i15: 238
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

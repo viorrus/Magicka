@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4131912904173748}
   - component: {fileID: 114234074278996766}
+  - component: {fileID: 114502300381562584}
   m_Layer: 0
   m_Name: BlockWater
   m_TagString: Untagged
@@ -70,7 +71,7 @@ Transform:
   m_GameObject: {fileID: 1607541422356680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4237205103981434}
   m_Father: {fileID: 0}
@@ -210,3 +211,35 @@ MonoBehaviour:
   animatorState: 0
   agent: {fileID: 0}
   spriteR: {fileID: 0}
+--- !u!114 &114502300381562584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607541422356680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 219
+    i1: 200
+    i2: 191
+    i3: 255
+    i4: 85
+    i5: 202
+    i6: 167
+    i7: 116
+    i8: 26
+    i9: 179
+    i10: 220
+    i11: 220
+    i12: 173
+    i13: 70
+    i14: 166
+    i15: 198
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4778293797190268}
   - component: {fileID: 114336943846873868}
+  - component: {fileID: 114935703882076956}
   m_Layer: 0
   m_Name: BlockObj
   m_TagString: Untagged
@@ -64,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 1849938452134128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4618136832871080}
   m_Father: {fileID: 0}
@@ -85,7 +86,40 @@ MonoBehaviour:
   isFree: 0
   animator: {fileID: 0}
   animatorState: 0
+  agent: {fileID: 0}
   spriteR: {fileID: 212892118090395506}
+--- !u!114 &114935703882076956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1849938452134128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 158
+    i1: 195
+    i2: 26
+    i3: 68
+    i4: 254
+    i5: 137
+    i6: 28
+    i7: 148
+    i8: 234
+    i9: 152
+    i10: 184
+    i11: 177
+    i12: 144
+    i13: 102
+    i14: 158
+    i15: 153
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!212 &212892118090395506
 SpriteRenderer:
   m_ObjectHideFlags: 1

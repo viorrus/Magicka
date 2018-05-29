@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4778293797190268}
   - component: {fileID: 114336943846873868}
+  - component: {fileID: 114896846086347068}
   m_Layer: 0
   m_Name: BlockObj 1
   m_TagString: Untagged
@@ -111,7 +112,40 @@ MonoBehaviour:
   isFree: 0
   animator: {fileID: 0}
   animatorState: 0
+  agent: {fileID: 0}
   spriteR: {fileID: 212152360466738356}
+--- !u!114 &114896846086347068
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1849938452134128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 238
+    i1: 135
+    i2: 68
+    i3: 2
+    i4: 217
+    i5: 124
+    i6: 5
+    i7: 132
+    i8: 216
+    i9: 85
+    i10: 10
+    i11: 18
+    i12: 193
+    i13: 218
+    i14: 169
+    i15: 129
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!212 &212152360466738356
 SpriteRenderer:
   m_ObjectHideFlags: 1

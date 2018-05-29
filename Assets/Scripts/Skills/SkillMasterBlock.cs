@@ -13,15 +13,14 @@ public class SkillMasterBlock : SkillMaster
         {
             skillList = new List<Skill>();
         }
-       
-        foreach(Skill sk in unit.unitBase.skills)
-        {
-            skillList.Add(sk.InstantiateMe(transform));
-            skillList[skillList.Count - 1].unit = unit;
-            skillList[skillList.Count - 1].Init();
-        }
+
+        skillList.AddRange(unit.GetComponentsInChildren<Skill>());
+
+        skillList.ForEach(x => { x.Setup(unit.unitBase.GetSkillByName(x.skillName));x.unit = unit; x.Init(); });   
         unit.unitBase.skills = skillList;
     }
+
+
     
 
     // Update is called once per frame

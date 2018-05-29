@@ -1,7 +1,9 @@
 ﻿using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Move3d : SkillWithUse {
@@ -74,8 +76,10 @@ public class Move3d : SkillWithUse {
         {
             rigidbody =  unit.gameObject.AddComponent<Rigidbody>();
         }
-        xPos = xPos.InstantiateMe(unit.transform);
-        xPos = unit.unitBase.AddAndGetStat(xPos);
+        var temp = unit.GetComponentsInChildren<Stat>().Where(x => x.stringId == xPos.stringId).FirstOrDefault();
+        temp.Setup(xPos);
+        xPos = temp;  
+        unit.unitBase.AddAndGetStat(xPos);
         groundPoint = unit.gameObject.GetComponentInChildren<GroundCheck>().transform;
         crouchPoint = unit.gameObject.GetComponentInChildren<CrouchCheck>().transform;
 
@@ -87,6 +91,8 @@ public class Move3d : SkillWithUse {
         DOVirtual.DelayedCall(Time.fixedDeltaTime, () => isGround = CheckObstacle(groundPoint, groundRadius,groundLayers)).SetLoops(-1).SetUpdate(false).SetTarget(unit.gameObject);
         DOVirtual.DelayedCall(Time.fixedDeltaTime, () => isCrouch = CheckObstacle(crouchPoint, crouchRadius, groundLayers)).SetLoops(-1).SetUpdate(false).SetTarget(unit.gameObject);
     }
+
+   
 
     public override bool SpecificCheckSkill()
     {
@@ -149,7 +155,7 @@ public class Move3d : SkillWithUse {
         base.UseSkill();
         if (isGround || isCanControlInAir)
         {
-            if (jump)
+            if (jump && isGround    )
             {
                 if (startJump != null)
                 {
@@ -173,5 +179,14 @@ public class Move3d : SkillWithUse {
         rigidbody.AddForce(new Vector3(0, skillPower, 0), ForceMode.Impulse);
     }
 
+    public override void Setup(Skill skill)
+    {
+        base.Setup(skill);
 
+        xPos = (skill as Move3d).xPos;
+        groundLayers = (skill as Move3d).groundLayers;
+        crouchRadius = (skill as Move3d).crouchRadius;
+        groundRadius = (skill as Move3d).groundRadius;
+        isCanControlInAir = (skill as Move3d).isCanControlInAir;
+    }
 }

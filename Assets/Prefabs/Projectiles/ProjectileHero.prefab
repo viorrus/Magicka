@@ -23,6 +23,11 @@ GameObject:
   - component: {fileID: 199082946876840534}
   - component: {fileID: 54977588895270650}
   - component: {fileID: 135341289311312212}
+  - component: {fileID: 114948766976621332}
+  - component: {fileID: 114426589781243632}
+  - component: {fileID: 114751629457829262}
+  - component: {fileID: 114308422804817768}
+  - component: {fileID: 114765844697460376}
   m_Layer: 0
   m_Name: ProjectileHero
   m_TagString: Untagged
@@ -36,13 +41,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1825687428929284}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.09108329, y: 6.4999537, z: 0.704}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!54 &54977588895270650
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -56,8 +61,120 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &114308422804817768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825687428929284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d646027fbf3f1949a6ce24560b2728c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: Trigger
+  manacost: 0
+  castTime: 0
+  cdTime: 0
+  durationTime: 0
+  castRange: 0
+  skillPower: 0
+  timer: 0
+  usePriority: 0
+  isReady: 0
+  isAlwaysUse: 0
+  skillImage: {fileID: 0}
+  unit: {fileID: 0}
+--- !u!114 &114426589781243632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825687428929284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114751629457829262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825687428929284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343b4e97293299f46ba38fbc2c838d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitBase: {fileID: 11400000, guid: 245ad6a705f084646b009ef40f91ec81, type: 2}
+  isFree: 0
+  animator: {fileID: 0}
+  animatorState: 0
+  agent: {fileID: 0}
+  ID: 0
+--- !u!114 &114765844697460376
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825687428929284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285da45253bcd92479435f1467624ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  stringId: Damage
+  _value: 0
+  minValue: 0
+  maxValue: 0
+  spriteBar: {fileID: 0}
+  spriteIcon: {fileID: 0}
+--- !u!114 &114948766976621332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825687428929284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 165
+    i1: 3
+    i2: 160
+    i3: 1
+    i4: 23
+    i5: 98
+    i6: 57
+    i7: 36
+    i8: 185
+    i9: 227
+    i10: 157
+    i11: 145
+    i12: 146
+    i13: 229
+    i14: 102
+    i15: 97
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!135 &135341289311312212
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -68,7 +185,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.01
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198268690859137270
 ParticleSystem:
@@ -129,7 +246,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1027309007
+  randomSeed: 755760923
   InitialModule:
     serializedVersion: 3
     enabled: 1

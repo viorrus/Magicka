@@ -55,6 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4450840309133072}
   - component: {fileID: 114080716257773842}
+  - component: {fileID: 114694300963526150}
   m_Layer: 0
   m_Name: BlockGround
   m_TagString: Untagged
@@ -83,7 +84,7 @@ Transform:
   m_GameObject: {fileID: 1641717672125148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4597501389500448}
   m_Father: {fileID: 0}
@@ -212,3 +213,35 @@ MonoBehaviour:
   animatorState: 0
   agent: {fileID: 0}
   spriteR: {fileID: 0}
+--- !u!114 &114694300963526150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1641717672125148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 251
+    i1: 197
+    i2: 170
+    i3: 239
+    i4: 248
+    i5: 59
+    i6: 31
+    i7: 180
+    i8: 8
+    i9: 167
+    i10: 231
+    i11: 178
+    i12: 136
+    i13: 162
+    i14: 146
+    i15: 80
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

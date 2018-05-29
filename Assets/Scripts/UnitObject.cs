@@ -1,23 +1,33 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Networking;
 
-public class UnitObject : MonoBehaviour {
+public class UnitObject : NetworkBehaviour {
     public System.Action deathAct;
-    public System.Action damageAct;
-
-
+    public System.Action<Collider> triggerIN;
+    public System.Action<float> damageAct;
+    public System.Action attackAct;
     public Unit unitBase;
     public bool isFree;
     public Animator animator;
     public int animatorState;
     public NavMeshAgent agent;
+    public int ID;
 
     public  virtual  void Start()
     {
         unitBase = unitBase.InstantiateMe(transform);
-        unitBase.stats = new List<Stat>();
+
+        List<Stat> temp = new List<Stat>(GetComponentsInChildren<Stat>());
+        temp.ForEach(x =>
+        {
+            if (unitBase.GetStatByName(x.stringId) != null)
+            { x.Setup(unitBase.GetStatByName(x.stringId)); }
+        }  );
+        unitBase.stats = new List<Stat>(temp);
         gameObject.AddComponent<SkillMasterUnit>();
     }
 
@@ -32,12 +42,13 @@ public class UnitObject : MonoBehaviour {
 
     }
 
-    public void GetDamage(int damage)
+    public virtual void GetDamage(float damage)
     {
-        if (damageAct!=null)
-        {
-            damageAct();
-        }
-       
+
+    }
+
+    private void OnDestroy()
+    {
+        DOTween.Kill(gameObject);
     }
 }

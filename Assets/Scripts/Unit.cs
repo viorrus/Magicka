@@ -13,7 +13,6 @@ public class Unit : ScriptableObject {
     public List<Stat> stats;
     public List<Skill> skills;
     public Sprite sprite;
-    public float cost;
 
     public Stat AddAndGetStat(Stat stat)
     {
