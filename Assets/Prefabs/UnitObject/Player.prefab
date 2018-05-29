@@ -592,6 +592,7 @@ GameObject:
   - component: {fileID: 114188798431143830}
   - component: {fileID: 114775454604569330}
   - component: {fileID: 114405331946614598}
+  - component: {fileID: 114572870346440564}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3702,6 +3703,8 @@ MonoBehaviour:
   animatorState: 0
   agent: {fileID: 0}
   ID: 0
+  fragCount: 0
+  idLastHit: 
 --- !u!114 &114495892120150926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3721,6 +3724,31 @@ MonoBehaviour:
   param3: 
   param4: 
   param5: 
+--- !u!114 &114572870346440564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1316521716843726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b689fa9e1778b364cae454f53e92370e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: Death
+  manacost: 0
+  castTime: 0
+  cdTime: 0
+  durationTime: 0
+  castRange: 0
+  skillPower: 0
+  timer: 0
+  usePriority: 0
+  isReady: 0
+  isAlwaysUse: 0
+  skillImage: {fileID: 0}
+  unit: {fileID: 0}
+  stat: {fileID: 0}
 --- !u!114 &114765357689198506
 MonoBehaviour:
   m_ObjectHideFlags: 1

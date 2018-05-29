@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   stringId: Health
-  _value: 0
+  _value: 100
   minValue: 0
   maxValue: 100
   spriteBar: {fileID: 21300000, guid: 3d8675433a508ec47b8f895201eacf20, type: 3}

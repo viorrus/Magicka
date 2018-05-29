@@ -6,17 +6,21 @@ using UnityEngine.Networking;
 
 public class UnitPlayerObject : UnitObject {
 
+    [SyncVar(hook ="UpdateFrag")]
+    public int fragCount;
+    public string idLastHit;
 
-    public override void Start()
+
+
+    void UpdateFrag(int value)
     {
-        base.Start();
-
+        fragCount = value;
     }
 
 
     public override void OnStartLocalPlayer()
     {
-        ID = NetworkManager.singleton.numPlayers;
+        ID = Network.player.ipAddress;
         
        var temp =  FindObjectsOfType<NetworkStartPosition>();
         transform.position = temp[Random.Range(0, temp.Length)].transform.position;
@@ -31,17 +35,17 @@ public class UnitPlayerObject : UnitObject {
 
     }
 
-    public override void GetDamage(float damage)
+    public override void GetDamage(float damage, string id)
     {
-        GetDamage(ID ,damage);
+        GetDamage(id ,damage);
        
     }
 
-    void GetDamage(int id, float damage)
+    void GetDamage(string id, float damage)
     {
         if (damageAct != null)
         {
-            damageAct(damage);
+            damageAct(damage,id);
         }
     }
 

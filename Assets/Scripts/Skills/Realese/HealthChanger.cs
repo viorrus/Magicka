@@ -92,12 +92,13 @@ public class HealthChanger : StatChanger {
 
  
     [Command]
-    public void CmdOnDamageHasTaken(float damage)
+    public void CmdOnDamageHasTaken(float damage,string id)
     {
-        if (isServer)
+        if (isServer && id != unit.ID)
         {
             // Value -= damage;
             stat.AddValue(-damage);
+            (unit as UnitPlayerObject).idLastHit = id;
         }
      
         

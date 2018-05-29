@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Linq;
+using UnityEngine.Networking;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-public class MapGenerator : MonoBehaviour {
+public class MapGenerator : NetworkBehaviour {
 
     private static MapGenerator instance;
     public static MapGenerator Instance
@@ -34,7 +35,7 @@ public class MapGenerator : MonoBehaviour {
 
     public void Start()
     {
-        GenerateMap();
+        CmdGenerateMap();
     }
 
 
@@ -44,7 +45,8 @@ public class MapGenerator : MonoBehaviour {
         map.AddRange(blackData.Replace('\n', ' ').Replace("\r", "").Trim('\n').Split(' '));
     }
 
-    public void GenerateMap()
+    [Command]
+    public void CmdGenerateMap()
     {
         mapBlocks = new List<BlockObject>();
         int x = 0;
@@ -60,6 +62,7 @@ public class MapGenerator : MonoBehaviour {
             {
                 mapBlocks.Add(Instantiate(tempBlock.blockObject, (startPoint.position + new Vector3(x * xSize, -k * ySize, 0)), startPoint.rotation, startPoint));
                 mapBlocks[mapBlocks.Count - 1].unitBase = tempBlock;
+                NetworkServer.Spawn(mapBlocks[mapBlocks.Count - 1].gameObject);
             }
             x++;
             y = k;

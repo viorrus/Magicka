@@ -6,8 +6,11 @@ using UnityEngine.AI;
 public class BlockObject : UnitObject {
    
     public SpriteRenderer spriteR;
+    public override void Awake()
+    {
+    }
 
-    public override void Start()
+    public  void Start()
     {
         unitBase = unitBase.InstantiateMe(transform);
         unitBase.stats = new List<Stat>();
@@ -16,7 +19,6 @@ public class BlockObject : UnitObject {
         {
             spriteR.sprite = unitBase.sprite;
         }
-       
     }
 
     public override void SetState(int i)

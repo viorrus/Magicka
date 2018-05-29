@@ -8,16 +8,17 @@ using UnityEngine.Networking;
 public class UnitObject : NetworkBehaviour {
     public System.Action deathAct;
     public System.Action<Collider> triggerIN;
-    public System.Action<float> damageAct;
+    public System.Action<float,string> damageAct;
     public System.Action attackAct;
     public Unit unitBase;
     public bool isFree;
     public Animator animator;
     public int animatorState;
     public NavMeshAgent agent;
-    public int ID;
+    [SyncVar]
+    public string ID;
 
-    public  virtual  void Start()
+    public  virtual  void Awake()
     {
         unitBase = unitBase.InstantiateMe(transform);
 
@@ -42,7 +43,7 @@ public class UnitObject : NetworkBehaviour {
 
     }
 
-    public virtual void GetDamage(float damage)
+    public virtual void GetDamage(float damage, string ID)
     {
 
     }

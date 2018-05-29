@@ -26,7 +26,11 @@ public class SkillMasterBlock : SkillMaster
     // Update is called once per frame
     public override void Update()
     {
-        base.Update();
+        if (skillList.Count > 0)
+        {
+            CullDownUpdate();
+            SelectSkill();
+        }
     }
 
     public override void DestoyAllSkills()

@@ -92,17 +92,18 @@ public class Stat : NetworkBehaviour {
     {
         Value += amount;
     }
+
     public void SetValue(float amount)
     {
         Value = amount;
     }
 
-    public bool isMax()
+    public bool IsMax()
     {
         return Value == maxValue;
     }
 
-    public bool isMin()
+    public bool IsMin()
     {
         return Value == minValue;
     }
@@ -112,6 +113,7 @@ public class Stat : NetworkBehaviour {
        
         minValue = stat.minValue;
         maxValue = stat.maxValue;
+        Value = stat.Value;
         if (_value == 0)
         {
             _value = maxValue;

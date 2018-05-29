@@ -21,7 +21,7 @@ public class SkillEvent : Skill {
         //Сотвори чудо. Пример
     }
 
-    public virtual void OnDamageHasTaken(float damage)
+    public virtual void OnDamageHasTaken(float damage,string id)
     {
         //Сотвори чудо. Пример
     }

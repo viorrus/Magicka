@@ -12,6 +12,7 @@ public class ProjectilesAttack : SkillWithUse {
     public List<MuzzleFx> firePositions;
     private GameObject fxParent;
     public System.Action madeAttack;
+    public System.Action<UnitCollisions> spawn;
 
     public override void Init()
     {
@@ -61,24 +62,16 @@ public class ProjectilesAttack : SkillWithUse {
         {
             tempProjectile = Instantiate(projectile, x.transform.position, x.transform.rotation);
             tempProjectile.GetComponent<Rigidbody>().velocity = direction*Vector3.right * speed;
+            var tempUnit = tempProjectile.GetComponent<UnitCollisions>();
+            tempUnit.ownerID = unit.ID;
+            if(spawn != null)
+            {
+                spawn(tempUnit);
+            }
             NetworkServer.Spawn(tempProjectile);
             Destroy(tempProjectile, 3);
         }
         );
-    }
-
-    public void Fire(int direction)
-    {
-        if (!isServer)
-        {
-            firePositions.ForEach(x =>
-            {
-                tempProjectile = Instantiate(projectile, x.transform.position, x.transform.rotation, fxParent.transform);
-                tempProjectile.GetComponent<Rigidbody>().AddForce(direction * Vector3.right * speed, ForceMode.Impulse);
-                Destroy(tempProjectile, 3);
-            }
-            );
-        }
     }
 
     public override void Setup(Skill skill)

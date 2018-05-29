@@ -20,4 +20,5 @@ MonoBehaviour:
   - {fileID: 114234713562686038, guid: 248a884b5b3bdf246aede9a10ab73898, type: 2}
   - {fileID: 114180280994738332, guid: cf7a04ab55b3a5447abf202548ee24ee, type: 2}
   - {fileID: 114590636400036068, guid: b32bfbae4e4b68e4e9e1ccc58e722f88, type: 2}
+  - {fileID: 114035740919646410, guid: 0d9a414e4ad272e4f97ae6e6d6730458, type: 2}
   sprite: {fileID: 0}

@@ -48,14 +48,6 @@ public class AnimateObject : SkillEvent {
             unit.attackAct += Attack;
         });
 
-        if (ik)
-        {
-            DOVirtual.DelayedCall(Time.deltaTime, () =>
-            {
-                SetAimFlag((activeAnimator.GetBool("Aiming")));
-            }).SetLoops(-1).SetTarget(unit.gameObject).SetUpdate(UpdateType.Late)
-                   ;
-        }
        
     }
 
@@ -66,9 +58,9 @@ public class AnimateObject : SkillEvent {
 
     }
 
-    public override void OnDamageHasTaken(float damage)
+    public override void OnDamageHasTaken(float damage, string id)
     {
-        base.OnDamageHasTaken(damage);
+        base.OnDamageHasTaken(damage, id);
     }
 
     void OnDestroy()

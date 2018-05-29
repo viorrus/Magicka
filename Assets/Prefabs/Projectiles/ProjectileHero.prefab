@@ -125,6 +125,7 @@ MonoBehaviour:
   animatorState: 0
   agent: {fileID: 0}
   ID: 0
+  ownerID: 
 --- !u!114 &114765844697460376
 MonoBehaviour:
   m_ObjectHideFlags: 1
