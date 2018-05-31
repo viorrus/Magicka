@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114722574683472952}
   - component: {fileID: 136034018643573168}
   - component: {fileID: 114869066395052580}
+  - component: {fileID: 114370288799067462}
   m_Layer: 0
   m_Name: PowerUpDamage
   m_TagString: Untagged
@@ -137,6 +138,17 @@ MonoBehaviour:
     i15: 210
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &114370288799067462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304359530541494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61dc3e7181bc42979b447cbf5028e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114722574683472952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,8 +165,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatorState: 0
   agent: {fileID: 0}
-  ID: 
-  ownerID: 
 --- !u!114 &114869066395052580
 MonoBehaviour:
   m_ObjectHideFlags: 1

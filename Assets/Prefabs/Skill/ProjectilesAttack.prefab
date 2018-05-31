@@ -99,5 +99,5 @@ MonoBehaviour:
   unit: {fileID: 0}
   button: Fire1
   projectile: {fileID: 1825687428929284, guid: a503a00117623924b9e39d9192e56661, type: 2}
-  speed: 1
+  speed: 5
   firePositions: []

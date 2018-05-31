@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1607541422356680}
+  m_IsPrefabParent: 1
+--- !u!1 &1607541422356680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4131912904173748}
+  - component: {fileID: 114234074278996766}
+  - component: {fileID: 114502300381562584}
+  - component: {fileID: 114027635937262472}
+  - component: {fileID: 114358463208489390}
+  m_Layer: 0
+  m_Name: BlockSpawnerBot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4131912904173748
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607541422356680}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114027635937262472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607541422356680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61dc3e7181bc42979b447cbf5028e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114234074278996766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607541422356680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72e3a0e47e31b84f95fb1bf71291ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitBase: {fileID: 0}
+  isFree: 0
+  animator: {fileID: 0}
+  animatorState: 0
+  agent: {fileID: 0}
+  spriteR: {fileID: 0}
+--- !u!114 &114358463208489390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607541422356680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddc2f600679834428805bc5dac29ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: Spawn
+  manacost: 0
+  castTime: 0
+  cdTime: 0
+  durationTime: 0
+  castRange: 0
+  skillPower: 0
+  timer: 0
+  usePriority: 0
+  isReady: 0
+  isAlwaysUse: 0
+  skillImage: {fileID: 0}
+  unit: {fileID: 0}
+  isFree: 0
+  spawnObjects: []
+--- !u!114 &114502300381562584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607541422356680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 207
+    i1: 123
+    i2: 13
+    i3: 253
+    i4: 152
+    i5: 208
+    i6: 167
+    i7: 84
+    i8: 216
+    i9: 80
+    i10: 215
+    i11: 144
+    i12: 203
+    i13: 53
+    i14: 89
+    i15: 144
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

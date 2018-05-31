@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b219856904e9b47a19d21b9835f2b5, type: 3}
+  m_Name: Bot
+  m_EditorClassIdentifier: 
+  unitID: 1
+  unitName: Bot
+  unitClass: Robot
+  stats: []
+  skills:
+  - {fileID: 114125152882045798, guid: 4b6d78300dbf75b47b345bf0437daf7c, type: 2}
+  - {fileID: 114234713562686038, guid: 53065f64d5da2024c80712b6eefd0f4a, type: 2}
+  - {fileID: 114081303591078310, guid: 58e5ca3cb0d14a448847872451a28911, type: 2}
+  - {fileID: 114055650348379870, guid: 5ec6c756d3ad2a24585a2271b626dc92, type: 2}
+  - {fileID: 114615129389761312, guid: 7fedb1f17d509ef429ea213502b37d8c, type: 2}
+  sprite: {fileID: 0}

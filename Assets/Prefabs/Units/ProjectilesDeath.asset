@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b219856904e9b47a19d21b9835f2b5, type: 3}
+  m_Name: ProjectilesDeath
+  m_EditorClassIdentifier: 
+  unitID: 100
+  unitName: pistolAttack
+  unitClass: Projectiles
+  stats:
+  - {fileID: 114193335006341688, guid: 95b331488764de14cab1644dd80da579, type: 2}
+  skills:
+  - {fileID: 114744389401342068, guid: d050ef12579392b4bb3a0bc4f45ce1f6, type: 2}
+  sprite: {fileID: 0}

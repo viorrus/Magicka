@@ -97,3 +97,4 @@ MonoBehaviour:
   isAlwaysUse: 0
   skillImage: {fileID: 0}
   unit: {fileID: 0}
+  isDestoyOnTrigger: 1

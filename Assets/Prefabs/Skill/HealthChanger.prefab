@@ -67,11 +67,10 @@ MonoBehaviour:
   unit: {fileID: 0}
   stat: {fileID: 114193335006341688, guid: 5ce3c81d23c6df442b9c8f84a1e94797, type: 2}
   bar: {fileID: 114181566810510748, guid: 3d3084e312dc6c24ebcd258594b9947a, type: 2}
-  _value: 0
-  minValue: 0
-  maxValue: 100
   spriteBar: {fileID: 0}
   spriteIcon: {fileID: 0}
+  armor: 0
+  punchSound: hit
 --- !u!114 &114257450161563266
 MonoBehaviour:
   m_ObjectHideFlags: 1

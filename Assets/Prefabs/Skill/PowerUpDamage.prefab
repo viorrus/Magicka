@@ -87,14 +87,15 @@ MonoBehaviour:
   skillName: UP
   manacost: 0
   castTime: 0
-  cdTime: 0
+  cdTime: 15
   durationTime: 0
   castRange: 0
   skillPower: 0
   timer: 0
-  usePriority: 0
+  usePriority: 50
   isReady: 0
   isAlwaysUse: 0
   skillImage: {fileID: 0}
   unit: {fileID: 0}
-  powerUpEffect: {fileID: 0}
+  powerUpEffect: {fileID: 1304359530541494, guid: 3087956c60d0ba1459094c20bab4e7d2,
+    type: 2}

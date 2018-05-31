@@ -15,8 +15,8 @@ MonoBehaviour:
   unitName: 
   unitClass: block
   stats: []
-  skills: []
-  sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  cost: 0
+  skills:
+  - {fileID: 114752494441525958, guid: b8bfaf376acf07b44b83e5e78ecb3043, type: 2}
+  sprite: {fileID: 0}
   blockObject: {fileID: 114234074278996766, guid: dbc8bfff55caa7741ab3dcdcad46a6c6,
     type: 2}

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4376644968269986}
   - component: {fileID: 33285805651841224}
   - component: {fileID: 23714486427224872}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: (Dont Ask. why this is green)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,8 @@ GameObject:
   - component: {fileID: 4107544594801852}
   - component: {fileID: 114249710998268162}
   - component: {fileID: 114406909447953470}
-  m_Layer: 0
+  - component: {fileID: 114093986726677510}
+  m_Layer: 8
   m_Name: BlockCloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +58,7 @@ GameObject:
   - component: {fileID: 23009116303964246}
   - component: {fileID: 64980046749758850}
   - component: {fileID: 114089909385020138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ice01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +75,7 @@ GameObject:
   - component: {fileID: 4451790483619064}
   - component: {fileID: 33614261318382416}
   - component: {fileID: 23539944862082426}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ice01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +117,7 @@ Transform:
   m_GameObject: {fileID: 1434007994580752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99, y: 1, z: 0.99}
+  m_LocalScale: {x: 0.98, y: 1.2, z: 0.98}
   m_Children:
   - {fileID: 4451790483619064}
   - {fileID: 4103316607353670}
@@ -280,6 +281,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topCollision: 1
   maxAngle: 45
+--- !u!114 &114093986726677510
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1606169562236934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61dc3e7181bc42979b447cbf5028e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114249710998268162
 MonoBehaviour:
   m_ObjectHideFlags: 1

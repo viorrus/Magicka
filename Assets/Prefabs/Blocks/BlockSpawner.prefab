@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114234074278996766}
   - component: {fileID: 114502300381562584}
   - component: {fileID: 114347565544567970}
+  - component: {fileID: 114027635937262472}
   m_Layer: 0
   m_Name: BlockSpawner
   m_TagString: Untagged
@@ -42,6 +43,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114027635937262472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607541422356680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61dc3e7181bc42979b447cbf5028e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114234074278996766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -58,7 +70,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatorState: 0
   agent: {fileID: 0}
-  ID: 
   spriteR: {fileID: 0}
 --- !u!114 &114347565544567970
 MonoBehaviour:
@@ -85,7 +96,10 @@ MonoBehaviour:
   skillImage: {fileID: 0}
   unit: {fileID: 0}
   isFree: 0
-  powerUps: []
+  spawnObjects:
+  - {fileID: 1304359530541494, guid: 3087956c60d0ba1459094c20bab4e7d2, type: 2}
+  - {fileID: 1304359530541494, guid: f35f24d15b775574d8f109081f5df702, type: 2}
+  - {fileID: 1304359530541494, guid: c8b3a4d076d65204baecea8c56f874fe, type: 2}
 --- !u!114 &114502300381562584
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -22,12 +22,13 @@ GameObject:
   - component: {fileID: 198268690859137270}
   - component: {fileID: 199082946876840534}
   - component: {fileID: 54977588895270650}
-  - component: {fileID: 135341289311312212}
   - component: {fileID: 114948766976621332}
   - component: {fileID: 114426589781243632}
   - component: {fileID: 114751629457829262}
   - component: {fileID: 114308422804817768}
   - component: {fileID: 114765844697460376}
+  - component: {fileID: 114637308167039452}
+  - component: {fileID: 136452831428722184}
   m_Layer: 0
   m_Name: ProjectileHero
   m_TagString: Untagged
@@ -87,6 +88,7 @@ MonoBehaviour:
   isAlwaysUse: 0
   skillImage: {fileID: 0}
   unit: {fileID: 0}
+  isDestoyOnTrigger: 0
 --- !u!114 &114426589781243632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,6 +110,17 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114637308167039452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825687428929284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d61dc3e7181bc42979b447cbf5028e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114751629457829262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,8 +137,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatorState: 0
   agent: {fileID: 0}
-  ID: 0
-  ownerID: 
 --- !u!114 &114765844697460376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -176,8 +187,8 @@ MonoBehaviour:
     i15: 97
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!135 &135341289311312212
-SphereCollider:
+--- !u!136 &136452831428722184
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -185,9 +196,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.01
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.1
+  m_Height: 0.31
+  m_Direction: 1
+  m_Center: {x: -0.006278217, y: 0.02399951, z: 0.0037108348}
 --- !u!198 &198268690859137270
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -247,7 +259,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 755760923
+  randomSeed: -1458620493
   InitialModule:
     serializedVersion: 3
     enabled: 1

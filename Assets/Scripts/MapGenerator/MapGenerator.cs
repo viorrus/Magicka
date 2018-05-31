@@ -62,7 +62,8 @@ public class MapGenerator : NetworkBehaviour {
             {
                 mapBlocks.Add(Instantiate(tempBlock.blockObject, (startPoint.position + new Vector3(x * xSize, -k * ySize, 0)), startPoint.rotation, startPoint));
                 mapBlocks[mapBlocks.Count - 1].unitBase = tempBlock;
-                NetworkServer.Spawn(mapBlocks[mapBlocks.Count - 1].gameObject);
+                mapBlocks[mapBlocks.Count - 1].parentNetId = startPoint.GetComponent<NetworkIdentity>().netId;
+               NetworkServer.Spawn(mapBlocks[mapBlocks.Count - 1].gameObject);
             }
             x++;
             y = k;
@@ -86,6 +87,8 @@ public class MapGenerator : NetworkBehaviour {
         blackData = reader.ReadToEnd();
         MapGenerator.Instance.MakePreGen();
         reader.Close();
+        EditorUtility.SetDirty(MapGenerator.Instance);
+        AssetDatabase.SaveAssets();
     }
 
 #endif

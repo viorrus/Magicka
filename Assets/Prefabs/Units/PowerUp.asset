@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b219856904e9b47a19d21b9835f2b5, type: 3}
   m_Name: PowerUp
   m_EditorClassIdentifier: 
-  unitID: 100
-  unitName: pistolAttack
-  unitClass: Projectiles
+  unitID: 
+  unitName: 
+  unitClass: 
   stats: []
   skills:
   - {fileID: 114772751962782584, guid: 98474e04e3d8e704cbb3349101a58071, type: 2}
