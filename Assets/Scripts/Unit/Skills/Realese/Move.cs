@@ -18,6 +18,10 @@ public class Move : SkillWithUse {
         }
         set
         {
+            if (groundChange != null)
+            {
+                groundChange(value);
+            }
             if (!_isGround)
             {
                 if (value)
@@ -26,9 +30,9 @@ public class Move : SkillWithUse {
                     {
                         endJump();
                     }
-                   
                 }
             }
+            
             _isGround = value;
         }
     }
@@ -57,6 +61,7 @@ public class Move : SkillWithUse {
     public Transform groundPoint;
     public float groundRadius;
     public LayerMask groundLayers;
+    public System.Action<bool> groundChange;
     public System.Action startJump;
     public System.Action endJump;
     public System.Action<float> move;

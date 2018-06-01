@@ -191,6 +191,7 @@ MonoBehaviour:
   unit: {fileID: 0}
   powerUpEffect: {fileID: 1465927769830376, guid: 052fabaf04ed127419b6b6364c1819e2,
     type: 2}
+  infoObject: {fileID: 1843624870578940, guid: b5a2c0c15724a9240bad4307720e0b5c, type: 2}
 --- !u!136 &136034018643573168
 CapsuleCollider:
   m_ObjectHideFlags: 1

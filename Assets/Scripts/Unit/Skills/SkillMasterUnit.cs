@@ -7,26 +7,18 @@ public class SkillMasterUnit : SkillMaster
 
     public override void Start()
     {
-        unit = GetComponent<UnitObject>();
-        unit.deathAct += DestoyAllSkills;
-        if(skillList == null)
-        {
-            skillList = new List<Skill>();
-        }
-
-        skillList.AddRange(unit.GetComponentsInChildren<Skill>());
-
-        skillList.ForEach(x => {
-            x.Setup(unit.unitBase.GetSkillByName(x.skillName));
-            x.unit = unit;
-            x.Init(); });
-        unit.unitBase.skills = skillList;
+        base.Start();
     }
 
     // Update is called once per frame
     public override void Update()
     {
-        base.Update();
+        if (isLocalPlayer)
+        {
+            CullDownUpdate();
+            SelectSkill();
+        }
+       
     }
 
     public override void DestoyAllSkills()

@@ -22,16 +22,7 @@ public class ProjectilesAttack : Attack {
     public override void UseSkill()
     {
         base.UseSkill();
-
         CmdPrepareAttack();
-        if (!fxParent)
-        {
-            fxParent = new GameObject(unit.unitBase.unitName + "_Fx");
-        }
-        if (unit.attackAct != null)
-        {
-            unit.attackAct();
-        }
     }
 
     public override void Setup(Skill skill)

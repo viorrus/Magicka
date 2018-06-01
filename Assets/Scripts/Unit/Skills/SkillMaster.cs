@@ -11,12 +11,28 @@ public class SkillMaster : NetworkBehaviour
     public virtual void Start()
     {
 
+        unit = GetComponent<UnitObject>();
+        unit.deathAct += DestoyAllSkills;
+        if (skillList == null)
+        {
+            skillList = new List<Skill>();
+        }
+
+        skillList.AddRange(unit.GetComponentsInChildren<Skill>());
+
+        skillList.ForEach(x =>
+        {
+            x.Setup(unit.unitBase.GetSkillByName(x.skillName));
+            x.unit = unit;
+            x.Init();
+        });
+        unit.unitBase.skills = skillList;
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
-        if (isServer || isLocalPlayer)
+        if (isServer)
         {
             CullDownUpdate();
             SelectSkill();

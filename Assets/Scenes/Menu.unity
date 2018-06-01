@@ -257,16 +257,16 @@ RectTransform:
   m_GameObject: {fileID: 78104952}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9999941, y: 0.9999941, z: 0.9999941}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 218296507}
-  m_Father: {fileID: 1998774169}
-  m_RootOrder: 2
+  m_Father: {fileID: 1762785671}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035156, y: 94}
-  m_SizeDelta: {x: 745.9, y: 100}
+  m_AnchoredPosition: {x: 0.000026902, y: 223}
+  m_SizeDelta: {x: 509.1, y: 68.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &78104954
 MonoBehaviour:
@@ -808,7 +808,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PLAY
+  m_Text: Start Host
 --- !u!222 &369619353
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1543,7 +1543,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PLAY
+  m_Text: Connect to Host
 --- !u!222 &1726031415
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1700,6 +1700,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1257158155}
+  - {fileID: 78104953}
   m_Father: {fileID: 625873517}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1892,7 +1893,6 @@ RectTransform:
   m_Children:
   - {fileID: 1458122088}
   - {fileID: 382374598}
-  - {fileID: 78104953}
   m_Father: {fileID: 625873517}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2074,6 +2074,9 @@ MonoBehaviour:
   - {fileID: 1477216161378338, guid: 82a9b8d276fbad844bfb974e5561b35b, type: 2}
   - {fileID: 1607541422356680, guid: cf7b0dfd98d0a754d850d790cb355990, type: 2}
   - {fileID: 1825687428929284, guid: 0f46ac5c63bb10540b1cf74b4d2925f5, type: 2}
+  - {fileID: 1843624870578940, guid: b5a2c0c15724a9240bad4307720e0b5c, type: 2}
+  - {fileID: 1843624870578940, guid: 07ac64bbe2b49944fa2597a98195387c, type: 2}
+  - {fileID: 1843624870578940, guid: 2dbf1456e4b7b9643a6a9d4d7ef9630c, type: 2}
   m_CustomConfig: 1
   m_MaxConnections: 4
   m_ConnectionConfig:

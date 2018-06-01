@@ -28,9 +28,23 @@ public class AnimatorIk : MonoBehaviour {
 
     public void Shoot()
     {
-        if (shoot != null)
+        var temp = GetComponent<UnitPlayerObject>();
+        if (!temp)
         {
-            shoot();
+            if (shoot != null)
+            {
+                shoot();
+            }
+        }
+        else
+        {
+            if (temp.isLocalPlayer)
+            {
+                if (shoot != null)
+                {
+                    shoot();
+                }
+            }
         }
     }
 

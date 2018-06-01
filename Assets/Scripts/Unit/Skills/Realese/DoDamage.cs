@@ -32,6 +32,10 @@ public class DoDamage : SkillEvent {
 
     void OnDestroy()
     {
-        unit.triggerIN -= TriggerEnter;
+        if(unit!=null && unit.triggerIN != null)
+        {
+            unit.triggerIN -= TriggerEnter;
+        }
+       
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine.Networking;
 public class PowerUpSpawnEffect : PowerUp {
 
     public GameObject powerUpEffect;
+    public GameObject infoObject;
     Collider tempCollider;
 
 
@@ -26,9 +27,17 @@ public class PowerUpSpawnEffect : PowerUp {
     [Command]
     void  CmdSpawn()
     {
-        var tempSpawn =  powerUpEffect.InstantiateMe(tempCollider.transform.position, Quaternion.identity, tempCollider.transform);
-        tempSpawn.GetComponent<NetworkSpawner>().parentNetId = tempCollider.GetComponent<NetworkIdentity>().netId;
-        NetworkServer.Spawn(tempSpawn);
+        if (powerUpEffect != null)
+        {
+            var tempSpawn = powerUpEffect.InstantiateMe(tempCollider.transform.position, Quaternion.identity, tempCollider.transform);
+            tempSpawn.GetComponent<NetworkSpawner>().parentNetId = tempCollider.GetComponent<NetworkIdentity>().netId;
+            NetworkServer.Spawn(tempSpawn);
+        }
+        if (infoObject != null)
+        {
+            NetworkServer.Spawn(infoObject.InstantiateMe(tempCollider.transform.position, Quaternion.identity, tempCollider.transform));
+        }
+        
     }
 
 

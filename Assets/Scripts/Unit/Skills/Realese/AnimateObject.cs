@@ -49,6 +49,7 @@ public class AnimateObject : SkillEvent {
             moveSkill.startJump += JumpStart;
             moveSkill.endJump += Land;
             moveSkill.startRotate += Rotate;
+            moveSkill.groundChange += SetGround;
             unit.attackAct += Attack;
         });
 
@@ -75,13 +76,13 @@ public class AnimateObject : SkillEvent {
 
     public void Walk(float speed)
     {
-        activeAnimator.SetBool("Aiming", false);
+      
         activeAnimator.SetFloat("Speed", speed);
     }
 
     public void Run()
     {
-        activeAnimator.SetBool("Aiming", false);
+       
         activeAnimator.SetFloat("Speed", 1f);
     }
 
@@ -104,13 +105,7 @@ public class AnimateObject : SkillEvent {
             activeAnimator.SetTrigger("Death");
     }
 
-    public void Damage()
-    {
-        if (activeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Death")) return;
-      
-        activeAnimator.SetInteger("DamageID", 0);
-        activeAnimator.SetTrigger("Damage");
-    }
+  
 
     public void JumpStart()
     {
@@ -119,6 +114,11 @@ public class AnimateObject : SkillEvent {
         activeAnimator.SetTrigger("Jump");
         activeAnimator.SetBool("IsGround", false);
         DOVirtual.DelayedCall(jumpProcent, moveSkill.AnimDelayJump);
+    }
+
+    public void SetGround(bool isGriund)
+    {
+        activeAnimator.SetBool("IsGround", isGriund);
     }
 
     public void Land()
@@ -134,7 +134,6 @@ public class AnimateObject : SkillEvent {
     public void Rotate(int direction)
     {
         activeAnimator.SetInteger("Direction", direction);
-      //  activeAnimator.SetTrigger("Rotate"); // Анимация оказалось довольно кривая, что проще стало от нее отказаться. В целом оставил, вдруг найду хорошую
          Sequence sq = DOTween.Sequence();
           sq.SetDelay(0.1f)
               .Append(rootMeshObject.DOLocalRotate(new Vector3(0, 90 * direction, 0), 0.8469388f));

@@ -33,7 +33,7 @@ public class UnitObject : NetworkBehaviour {
             { x.Setup(unitBase.GetStatByName(x.stringId)); }
         }  );
         unitBase.stats = new List<Stat>(temp);
-        gameObject.AddComponent<SkillMasterUnit>();
+        gameObject.AddComponent<SkillMaster>();
     }
 
     public virtual void SetState(int i)

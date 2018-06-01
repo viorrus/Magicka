@@ -9,8 +9,20 @@ public class UnitPlayerObject : UnitObject
 
     [SyncVar(hook = "UpdateFrag")]
     public int fragCount;
-   
 
+    public override void Awake()
+    {
+        unitBase = unitBase.InstantiateMe(transform);
+
+        List<Stat> temp = new List<Stat>(GetComponentsInChildren<Stat>());
+        temp.ForEach(x =>
+        {
+            if (unitBase.GetStatByName(x.stringId) != null)
+            { x.Setup(unitBase.GetStatByName(x.stringId)); }
+        });
+        unitBase.stats = new List<Stat>(temp);
+        gameObject.AddComponent<SkillMasterUnit>();
+    }
 
 
     void UpdateFrag(int value)
@@ -24,18 +36,20 @@ public class UnitPlayerObject : UnitObject
 
     public override void OnStartLocalPlayer()
     {
-        CmdSetID();
+      
 
         var temp = FindObjectsOfType<NetworkStartPosition>();
         transform.position = temp[Random.Range(0, temp.Length)].transform.position;
         if (isLocalPlayer)
         {
+            CmdSetID();
+            UpdateFrag(0);
             var tempObjects = GetComponent<LocalObjects>();
             foreach (GameObject go in tempObjects.localGroup)
             {
                 go.SetActive(true);
             }
-            UpdateFrag(PlayerPrefs.GetInt("FragCount", 0));
+         
         }
 
     }
@@ -49,11 +63,6 @@ public class UnitPlayerObject : UnitObject
 
     private void OnDestroy()
     {
-        if (isLocalPlayer)
-        {
-            PlayerPrefs.SetInt("FragCount", fragCount);
-        }
-
     }
 
 }

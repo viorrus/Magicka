@@ -15,7 +15,7 @@ public class NetHud : NetworkBehaviour {
     {
         if (ipText)
         {
-            ipText.textComponent.text = NetworkManager.singleton.networkAddress;
+            ipText.textComponent.text = PlayerPrefs.GetString("ip", NetworkManager.singleton.networkAddress);
         }
        
         if (myIpText)
@@ -57,6 +57,7 @@ public class NetHud : NetworkBehaviour {
     void SetIP()
     {
         NetworkManager.singleton.networkAddress = ipText.text;
+        PlayerPrefs.SetString("ip", NetworkManager.singleton.networkAddress);
         if(NetworkManager.singleton.networkAddress == "")
         {
             NetworkManager.singleton.networkAddress = "localhost";
@@ -82,6 +83,7 @@ public class NetHud : NetworkBehaviour {
         else
         {
             Network.Disconnect(2);
+            NetworkManager.singleton.StopClient();
         }
 
     }

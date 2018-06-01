@@ -99,3 +99,4 @@ MonoBehaviour:
   unit: {fileID: 0}
   powerUpEffect: {fileID: 1304359530541494, guid: f35f24d15b775574d8f109081f5df702,
     type: 2}
+  infoObject: {fileID: 1843624870578940, guid: 07ac64bbe2b49944fa2597a98195387c, type: 2}
